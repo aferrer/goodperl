@@ -198,6 +198,38 @@
 						</code></pre>
 					</section>
 				</section>
+				<!-- Question 11 -->
+				<section>
+					<section>
+						<h3>How do you look up error messages in the Perl 5 documentation?</h3>
+						<p>(Award bonus points for knowing how to enable explanations of all error messages encountered)</p>
+					</section>
+					<section>
+						<h4>diagnostics and splain</h4>
+						<pre><code>
+	use diagnostics;
+	enable diagnostics;
+						</code></pre>
+						<pre><code>
+	perl jogo.pl 2>diag.out
+	splain diag.out
+						</code></pre>
+					</section>
+					<section>
+						<pre><code>
+	Global symbol "$roda" requires explicit package name at jogo.pl line 7 (#1)
+    (F) You've said "use strict" or "use strict vars", which indicates
+    that all variables must either be lexically scoped (using "my" or "state"),
+    declared beforehand using "our", or explicitly qualified to say
+    which package the global variable is in (using "::").
+
+    Global symbol "$roda" requires explicit package name at jogo.pl line 8 (#1)
+
+    Execution of jogo.pl aborted due to compilation errors (#1) (#2)
+
+						</code></pre>
+					</section>
+				</section>
 			</div>
 		</div>
 

@@ -232,27 +232,54 @@
 				</section>
 				<!-- Question 12 -->
 				<section>
-					<section><h3>What happens when you pass an array into a function?</section>
+					<section><h3>What happens when you pass an array into a function?</h3></section>
 					<section>
 						<p>The array is "flattened" and every element becomes a parameter in the function</p>
 						<pre><code>
-	#!/usr/bin/perl
-	use strict;
-	use warnings;
-	use v5.20;
+#!/usr/bin/perl
+use strict;
+use warnings;
+use v5.20;
 
-	sub jogar {
-	        my @participantes = shift;
-	        say "As participantes na roda sao " . join(",", @participantes);
-	}
+sub jogar {
+        my @participantes = shift;
+        say "As participantes na roda sao " . join(",", @participantes);
+}
 
-	my @jogadoras = ('cegonha', 'sol', 'colorada', 'creta', 'lua', 'macaquinha');
-	jogar(@jogadoras);
+my @jogadoras = ('cegonha', 'sol', 'colorada', 'creta', 'lua', 'macaquinha');
+jogar(@jogadoras);
 
 						</code></pre>
 						<pre><code>
-perl jogo.pl
 As participantes na roda sao cegonha
+						</code></pre>
+					</section>
+				</section>
+				<!-- Question 13 -->
+				<section>
+					<section><h3>How do you pass one or more distinct arrays into a function?</h3></section>
+					<section>
+						<p>By passing them as references</p>
+						<pre><code>
+#!/usr/bin/perl
+use strict;
+use warnings;
+use v5.20;
+
+sub jogar {
+        my $jogadoras = shift;
+	my $jogadores = shift;
+       	say "As participantes na roda sao " . join(",", @$jogadoras);
+        say "Os participantes na roda sao " . join(",", @$jogadores);
+}
+
+my @jogadoras = ('cegonha', 'sol', 'colorada', 'creta', 'lua', 'macaquinha');
+my @jogadores = ('marujo', 'albatroz', 'socorrista', 'lambarí', 'afogado', 'calado');
+jogar(\@jogadoras, \@jogadores);
+						</code></pre>
+						<pre><code>
+As participantes na roda sao cegonha,sol,colorada,creta,lua,macaquinha
+Os participantes na roda sao marujo,albatroz,socorrista,lambarí,afogado,calado
 						</code></pre>
 					</section>
 				</section>

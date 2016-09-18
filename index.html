@@ -32,7 +32,7 @@
 					</section>
 					<!-- Context -->
 					<section>
-						<h3>About me</h3>
+						<h3>$me</h3>
 						<ul>
 							<li>Started with Perl when I started working as sysadmin</li>
 							<li>Found my current job in the Barcelona Perl Mongers list</li>
@@ -54,7 +54,7 @@
 				</section>
 				<!-- Question 1 -->
 				<section>
-					<section>What do variable sigils indicate in Perl 5?</section>
+					<section><h3>What do variable sigils indicate in Perl 5?</h3></section>
 					<section>
 						<ul>
 							<li>Special symbols that appear in front of the name of a variable.</li>
@@ -70,13 +70,13 @@
 				</section>
 				<!-- Question 2 -->
 				<section>
-					<section>What's the difference between accessing an array element with <code>$items[$index]</code> and <code>@items[$index]</code>?</section>
+					<section><h3>What's the difference between accessing an array element with <code>$items[$index]</code> and <code>@items[$index]</code>?</h3></section>
 					<section>The context in which the result is evaluated</section>
 					<section>ToDo: example code</section>
 				</section>
 				<!-- Question 3 -->
 				<section>
-					<section>What's the difference between <code>==</code> and <code>eq</code>?</section>
+					<section><h3>What's the difference between <code>==</code> and <code>eq</code>?</h3></section>
 					<section>
 						<ul>
 							<li><code>==</code> forces the comparison in numeric context</li>
@@ -86,12 +86,12 @@
 				</section>
 				<!-- Question 4 -->
 				<section>
-					<section>What do you get if you evaluate a hash in list context?</section>
+					<section><h3>What do you get if you evaluate a hash in list context?</h3></section>
 					<section>A list of key-value pairs: (a, 1, b, 2, c, 3)</section>
 				</section>
 				<!-- Question 5 -->
 				<section>
-					<section>How do you look up keywords in the Perl documentation?</section>
+					<section><h3>How do you look up keywords in the Perl documentation?</h3></section>
 					<section>
 						<h3><code>perldoc -f «keyword»</code></h3>
 						<p>if «keyword» is a function</p>
@@ -102,7 +102,7 @@
 				<!-- Question 6 -->
 				<!-- notes: http://perlmaven.com/methods-functions-and-subroutines-in-perl -->
 				<section>
-					<section>What is the difference between a function and a method in Perl 5?</section>
+					<section><h3>What is the difference between a function and a method in Perl 5?</h3></section>
 					<section>
 						<h3>The way they are used</h3>
 						 <table style="width:100%">
@@ -147,13 +147,13 @@
 				</section>
 				<!-- Question 7 -->
 				<section>
-					<section>When does Perl 5 reclaim the memory used by a variable?</section>
+					<section><h3>When does Perl 5 reclaim the memory used by a variable?</h3></section>
 					<section>When it disappears (end of scope, function,...)</section>
 				</section>
 				<!-- Question 8 -->
 				<!-- notes: http://perldoc.perl.org/perlfaq7.html -->
 				<section>
-					<section>How do you ensure that the default scope of a variable is lexical?</section>
+					<section><h3>How do you ensure that the default scope of a variable is lexical?</h3></section>
 					<section>By using <code>my</code></section>
 					<section>
 						<p><b>local $x</b>: saves away the old value of the global variable $x and assigns a new value for the duration of the subroutine/scope (and the subroutines called from it).</p>
@@ -163,7 +163,7 @@
 				<!-- Question 9 -->
 				<!-- notes: http://perldoc.perl.org/Exporter.html -->
 				<section>
-					<section>How do you load and import symbols from a Perl 5 module?</section>
+					<section><h3>How do you load and import symbols from a Perl 5 module?</h3></section>
 					<section>In order to import, you first need to export</section>
 					<section>
 						<pre><code>
@@ -181,7 +181,7 @@
 				<!-- Question 10 -->
 				<!-- notes: http://perldoc.perl.org/perlvar.html -->
 				<section>
-					<section>How can you influence the list of directories from which perl attempts to load modules?</section>
+					<section><h3>How can you influence the list of directories from which perl attempts to load modules?</h3></section>
 					<section>
 						<p><b>@INC:</b> contains the list of places that <code>do</code>, <code>require</code> or <code>use</code> constructs look for their library files.</p>
 						<ul>

@@ -230,6 +230,32 @@
 						</code></pre>
 					</section>
 				</section>
+				<!-- Question 12 -->
+				<section>
+					<section><h3>What happens when you pass an array into a function?</section>
+					<section>
+						<p>The array is "flattened" and every element becomes a parameter in the function</p>
+						<pre><code>
+	#!/usr/bin/perl
+	use strict;
+	use warnings;
+	use v5.20;
+
+	sub jogar {
+	        my @participantes = shift;
+	        say "As participantes na roda sao " . join(",", @participantes);
+	}
+
+	my @jogadoras = ('cegonha', 'sol', 'colorada', 'creta', 'lua', 'macaquinha');
+	jogar(@jogadoras);
+
+						</code></pre>
+						<pre><code>
+perl jogo.pl
+As participantes na roda sao cegonha
+						</code></pre>
+					</section>
+				</section>
 			</div>
 		</div>
 

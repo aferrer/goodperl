@@ -4,10 +4,10 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+		<title>How to Identify a Good Perl Programmer</title>
 
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/beige.css">
+		<link rel="stylesheet" href="css/theme/night.css">
 
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -28,6 +28,7 @@
 					<h2>How to Identify a Good Perl Programmer</h2>
 					<p>by Alba Ferrer</p>
 				</section>
+				<!-- Context -->
 				<section>
 					<section>Context</section>
 					<section>
@@ -38,13 +39,14 @@
 						</ul>
 					</section>
 				</section>
+				<!-- Question 1 -->
 				<section>
-					<section>Question: What do variable sigils indicate in Perl 5?</section>
+					<section>What do variable sigils indicate in Perl 5?</section>
 					<section>
 						<ul>
 							<li>Special symbols that appear in front of the name of a variable.</li>
 							<li>Indicate the type or 'container' of that variable</li>
-							<li>There are three basic types of sigils:</li>
+							<li>There are three types of sigils:</li>
 							<ul>
 								<li>$: scalar</li>
 								<li>@: array</li>
@@ -53,18 +55,134 @@
 						<ul>
 					</section>
 				</section>
+				<!-- Question 2 -->
 				<section>
-					<section>Question: What's the difference between accessing an array element with $items[$index] and @items[$index]?</section>
+					<section>What's the difference between accessing an array element with <code>$items[$index]</code> and <code>@items[$index]</code>?</section>
 					<section>The context in which the result is evaluated</section>
 					<section>ToDo: example code</section>
 				</section>
+				<!-- Question 3 -->
 				<section>
-					<section>Question: What's the difference between == and eq?</section>
+					<section>What's the difference between <code>==</code> and <code>eq</code>?</section>
 					<section>
 						<ul>
-							<li>== forces the comparison in numeric context</li>
-							<li>eq forces the comparison in string context</li>
+							<li><code>==</code> forces the comparison in numeric context</li>
+							<li><code>eq</code> forces the comparison in string context</li>
 						</ul>
+					</section>
+				</section>
+				<!-- Question 4 -->
+				<section>
+					<section>What do you get if you evaluate a hash in list context?</section>
+					<section>A list of key-value pairs: (a, 1, b, 2, c, 3)</section>
+				</section>
+				<!-- Question 5 -->
+				<section>
+					<section>How do you look up keywords in the Perl documentation?</section>
+					<section>
+						<h3><code>perldoc -f «keyword»</code></h3>
+						<p>if «keyword» is a function</p>
+						<h3><code>perldoc -q «keyword»</code></h3>
+						<p>if «keyword» is any word, to look it up in the FAQ</p>
+					</section>
+				</section>
+				<!-- Question 6 -->
+				<!-- notes: http://perlmaven.com/methods-functions-and-subroutines-in-perl -->
+				<section>
+					<section>What is the difference between a function and a method in Perl 5?</section>
+					<section>
+						<h3>The way they are used</h3>
+						 <table style="width:100%">
+						  <tr>
+						    <th>Function</th>
+						    <th>Method</th>
+						  </tr>
+						  <tr>
+						    <td><code>Class::Name::function($param)</code></td>
+						    <td><code>$object->method($param)</code>
+							<code>Class::Name->method</code>
+						    </td>
+						  </tr>
+						</table>
+					</section>
+					<section>
+						<h3>The way they are looked up</h3>
+						 <table style="width:100%">
+						  <tr>
+						    <th>Function</th>
+						    <th>Method</th>
+						  </tr>
+						  <tr>
+						    <td>Perl will look for it in the current class only</td>
+						    <td>Perl will look for it in the current class, then its parents, then their parents... until stopping or calling AUTOLOAD</td>
+						  </tr>
+						</table>
+					</section>
+					<section>
+						<h3>The parameters they get</h3>
+						 <table style="width:100%">
+						  <tr>
+						    <th>Function</th>
+						    <th>Method</th>
+						  </tr>
+						  <tr>
+						    <td>Whatever you pass explicitly</td>
+						    <td>First parameter is always the current object, then whatever you pass explicitly</td>
+						  </tr>
+						</table>
+					</section>
+				</section>
+				<!-- Question 7 -->
+				<section>
+					<section>When does Perl 5 reclaim the memory used by a variable?</section>
+					<section>When it disappears (end of scope, function,...)</section>
+				</section>
+				<!-- Question 8 -->
+				<!-- notes: http://perldoc.perl.org/perlfaq7.html -->
+				<section>
+					<section>How do you ensure that the default scope of a variable is lexical?</section>
+					<section>By using <code>my</code></section>
+					<section>
+						<p><b>local $x</b>: saves away the old value of the global variable $x and assigns a new value for the duration of the subroutine/scope (and the subroutines called from it).</p>
+						<p><b>my $x</b>: creates a new variable that is visible only in the current subroutine/scope.</p>
+					</section>
+				</section>
+				<!-- Question 9 -->
+				<!-- notes: http://perldoc.perl.org/Exporter.html -->
+				<section>
+					<section>How do you load and import symbols from a Perl 5 module?</section>
+					<section>In order to import, you first need to export</section>
+					<section>
+						<pre><code>
+	package Capoeira;
+	use Exporter 'import'; # gives you Exporter's import() method directly
+  	@EXPORT_OK = qw(ginga queixada au_sem_maos); # symbols to export on request
+						</code></pre>
+					</section>
+					<section>
+						<pre><code>
+	use Capoeira qw(ginga queixada);
+						</code></pre>
+					</section>
+				</section>
+				<!-- Question 10 -->
+				<!-- notes: http://perldoc.perl.org/perlvar.html -->
+				<section>
+					<section>How can you influence the list of directories from which perl attempts to load modules?</section>
+					<section>
+						<p><b>@INC:</b> contains the list of places that <code>do</code>, <code>require</code> or <code>use</code> constructs look for their library files.</p>
+						<ul>
+							<li>Arguments to any <code>-I</code> command line switches</li>
+							<li>Default Perl library (e.g. <i>/usr/local/lib/perl</i>)</li>
+							<li>.</li>
+						</ul>
+					</section>
+					<section>
+						<p>To load modules from other directories, use the <code>use lib</code> pragma</p>
+						<pre><code>
+	use lib '/myhobbies/libdir/';
+	use Capoeira;
+						</code></pre>
 					</section>
 				</section>
 			</div>

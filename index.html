@@ -166,14 +166,14 @@
 					<section><h3>How do you load and import symbols from a Perl 5 module?</h3></section>
 					<section>In order to import, you first need to export</section>
 					<section>
-						<pre><code>
+						<pre class="perl"><code>
 	package Capoeira;
 	use Exporter 'import'; # gives you Exporter's import() method directly
   	@EXPORT_OK = qw(ginga queixada au_sem_maos); # symbols to export on request
 						</code></pre>
 					</section>
 					<section>
-						<pre><code>
+						<pre class="perl"><code>
 	use Capoeira qw(ginga queixada);
 						</code></pre>
 					</section>
@@ -194,7 +194,7 @@
 					</section>
 					<section>
 						<p>To load modules from other directories, use the <code>use lib</code> pragma</p>
-						<pre><code>
+						<pre class="perl"><code>
 	use lib '/myhobbies/libdir/';
 	use Capoeira;
 						</code></pre>
@@ -208,17 +208,17 @@
 					</section>
 					<section>
 						<h4>diagnostics and splain</h4>
-						<pre><code>
+						<pre class="perl"><code>
 	use diagnostics;
 	enable diagnostics;
 						</code></pre>
-						<pre><code>
+						<pre class="perl"><code>
 	perl jogo.pl 2>diag.out
 	splain diag.out
 						</code></pre>
 					</section>
 					<section>
-						<pre><code>
+						<pre class="prettyprint"><code>
 	Global symbol "$roda" requires explicit package name at jogo.pl line 7 (#1)
     (F) You've said "use strict" or "use strict vars", which indicates
     that all variables must either be lexically scoped (using "my" or "state"),
@@ -237,7 +237,7 @@
 					<section><h3>What happens when you pass an array into a function?</h3></section>
 					<section>
 						<p>The array is "flattened" and every element becomes a parameter in the function</p>
-						<pre><code>
+						<pre class="perl"><code>
 #!/usr/bin/perl
 use strict;
 use warnings;
@@ -252,7 +252,7 @@ my @jogadoras = ('cegonha', 'sol', 'colorada', 'creta', 'lua', 'macaquinha');
 jogar(@jogadoras);
 
 						</code></pre>
-						<pre><code>
+						<pre class="perl"><code>
 As participantes na roda sao cegonha
 						</code></pre>
 					</section>
@@ -262,7 +262,7 @@ As participantes na roda sao cegonha
 					<section><h3>How do you pass one or more distinct arrays into a function?</h3></section>
 					<section>
 						<p>By passing them as references</p>
-						<pre><code>
+						<pre class="perl"><code>
 #!/usr/bin/perl
 use strict;
 use warnings;
@@ -279,7 +279,7 @@ my @jogadoras = ('cegonha', 'sol', 'colorada', 'creta', 'lua', 'macaquinha');
 my @jogadores = ('marujo', 'albatroz', 'socorrista', 'lambarí', 'afogado', 'calado');
 jogar(\@jogadoras, \@jogadores);
 						</code></pre>
-						<pre><code>
+						<pre class="perl"><code>
 As participantes na roda sao cegonha,sol,colorada,creta,lua,macaquinha
 Os participantes na roda sao marujo,albatroz,socorrista,lambarí,afogado,calado
 						</code></pre>
@@ -290,7 +290,7 @@ Os participantes na roda sao marujo,albatroz,socorrista,lambarí,afogado,calado
 					<section><h3>What is the difference, on the caller side, between <code>return;</code> and <code>return undef;</code>?</h3></section>
 					<section>
 						<h4>In scalar context</h4>
-						<pre><code>
+						<pre class="perl"><code>
 #!/usr/bin/perl
 use strict;
 use warnings;
@@ -311,7 +311,7 @@ my $res2 = return_undef();
 say Dumper($res1);
 say Dumper($res2);
 						</code></pre>
-						<pre><code>
+						<pre class="perl"><code>
 $VAR1 = undef;
 
 $VAR1 = undef;
@@ -319,7 +319,7 @@ $VAR1 = undef;
 					</section>
 					<section>
 						<h4>In list context</h4>
-						<pre><code>
+						<pre class="perl"><code>
 #!/usr/bin/perl
 use strict;
 use warnings;
@@ -340,12 +340,40 @@ my @res2 = return_undef();
 say Dumper(\@res1);
 say Dumper(\@res2);
 						</code></pre>
-						<pre><code>
+						<pre class="perl"><code>
 $VAR1 = [];
 
 $VAR1 = [
           undef
         ];
+						</code></pre>
+					</section>
+				</section>
+				<!-- Question 15 -->
+				<section>
+					<section><h3>Where do tests go in a standard CPAN distribution?</h3></section>
+					<section>In the <i>t</i> directory, at the root of the distribution.</section>
+				</section>
+				<!-- Question 16 -->
+				<section>
+					<section><h3>How do you run tests in a standard CPAN distribution?</h3></section>
+					<section>With the <code>prove</code> command.</section>
+				</section>
+				<!-- Question 17 -->
+				<section>
+					<section><h3>What command do you use to install new distributions from the CPAN?</h3></section>
+					<section><code>cpan</code> or <code>cpanm</code></section>
+				</section>
+				<!-- Question 18 -->
+				<section>
+					<section><h3>Why would you use the three-argument form of the open builtin?</h3></section>
+					<section>
+						<pre class="perl"><code>
+open(FILE, "&lt;/path/to/file.txt")
+						</code></pre>
+						<p>vs</p>
+						<pre class="perl"><code>
+open(my $fh, "&lt;", "/path/to/file.txt")
 						</code></pre>
 					</section>
 				</section>

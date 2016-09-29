@@ -376,6 +376,12 @@ open(FILE, "&lt;/path/to/file.txt")
 open(my $fh, "&lt;", "/path/to/file.txt")
 						</code></pre>
 					</section>
+					<section>
+						<ul>
+							<li>To avoid collision with reserved variables</li>
+							<li>For security (not sanitized input with &gt; at the beginning)</li>
+						</ul>
+					</section>
 				</section>
 			</div>
 		</div>

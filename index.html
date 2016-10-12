@@ -606,6 +606,73 @@ cegonha
 						</code></pre>
 					</section>
 				</section>
+				<!-- Question 25 -->
+				<section>
+					<section><h3>Is <code>new</code> a builtin function/keyword?</h3></section>
+					<section>
+					<p>No</p>
+					<p>It's just a convention</p>
+					</section>
+				</section>
+				<!-- Question 26 -->
+				<section>
+					<section><h3>How do you read the documentation of a core library? A CPAN module?</h3></section>
+					<section>
+						<p>With <code>perldoc</code></p>
+						<pre class="perl"><code>
+perldoc Paws
+						</code></pre>
+						<pre class="perl"><code>
+NAME
+    Paws - A Perl SDK for AWS (Amazon Web Services) APIs
+
+SYNOPSIS
+      use Paws;
+      my $obj = Paws-&gt;service('...');
+      my $res = $obj-&gt;MethodCall(Arg1 =&gt; $val1, Arg2 =&gt; $val2);
+      print $res-&gt;AttributeFromResult;
+
+DESCRIPTION
+    Paws is an attempt to develop an always up-to-date SDK that covers all possible AWS services.
+
+STATUS
+    Please consider the SDK is beta quality. The intention of publishing to CPAN is having the community find the SDK, try it, give
+    feedback, etc. Some services are still not working, and some heavy refactoring will still be done to the internals. The external
+    interface to SDK users will try to be kept stable, and changes to it should be notified via ChangeLog
+
+SUPPORTED SERVICES
+
+						</code></pre>
+					</section>
+				</section>
+				<!-- Question 27 -->
+				<section>
+					<section><h3>How do you access only the values of a Perl 5 hash?</h3></section>
+					<section>
+						<p>With the <code>values</code> function</p>
+						<pre class="perl"><code>
+#player-grade
+my %graduacoes = (
+        'cegonha' =&gt; 'azul',
+        'creta' =&gt; 'laranja-azul',
+        'sol' =&gt; 'amarela-laranja',
+        'afogado' =&gt; 'amarela',
+        'lambarí' =&gt; 'verde-roxa'
+);
+
+for my $corda (values %graduacoes) {
+        say $corda;
+}
+						</code></pre>
+						<pre class="bash"><code>
+laranja-azul
+azul
+verde-roxa
+amarela
+amarela-laranja
+						</code></pre>
+					</section>
+				</section>
 			</div>
 		</div>
 

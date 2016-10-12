@@ -276,7 +276,7 @@ sub jogar {
 }
 
 my @jogadoras = ('cegonha', 'sol', 'colorada', 'creta', 'lua', 'macaquinha');
-my @jogadores = ('marujo', 'albatroz', 'socorrista', 'lambarí', 'afogado', 'calado');
+my @jogadores = ('marujo', 'tarzan', 'socorrista', 'lambarí', 'afogado', 'calado');
 jogar(\@jogadoras, \@jogadores);
 						</code></pre>
 						<pre class="perl"><code>
@@ -558,6 +558,52 @@ foreach my $line (<$fh>) {
 							<li><code>while</code> is the way to go for growing files (e.g. live logs)</li>
 							<li>For all the rest, they're equivalent</li>
 						</ul>
+					</section>
+				</section>
+				<!-- Question 23 -->
+				<section>
+					<section><h3>How do you handle parameters within a method or function in Perl 5?</h3></section>
+					<section>
+						<p>Parameters are kept in the special variable <code>@_</code></p>
+						<p>You can handle the parameters by running <code>shift</code> on <code>@_</code> (implicit variable in the function</p>
+						<pre class="perl"><code>
+sub jogar {
+        my $participantes = shift;
+        say "As participantes na roda sao " . join(",", @$participantes);
+}
+
+my @jogadoras = ('cegonha', 'sol', 'colorada', 'creta', 'lua', 'macaquinha');
+jogar(\@jogadoras);
+						</code></pre>
+					</section>
+				</section>
+				<!-- Question 24 -->
+				<section>
+					<section><h3>What do parentheses around the variable name in <code>my ($value) = @_;</code> mean, and what would happen if you removed them?</h3></section>
+					<section>
+						<p>With the parentheses, evaluation is in array context. <code>$value</code> will get the first element of the <code>@_</code> array</p>
+						<p>Without the parentheses, evaluation is in scalar context. <code>$value</code> will get the number of elements in the <code>@_</code> array</p>
+					</section>
+					<section>
+						<pre class="perl"><code>
+sub jogar_par {
+        my ($participantes) = @_;
+        say $participantes;
+}
+
+sub jogar_no_par {
+        my $participantes = @_;
+        say $participantes;
+}
+
+my @jogadoras = ('cegonha', 'sol', 'colorada', 'creta', 'lua', 'macaquinha');
+jogar_par(@jogadoras);
+jogar_no_par(@jogadoras);
+						</code></pre>
+						<pre class="bash"><code>
+cegonha
+6
+						</code></pre>
 					</section>
 				</section>
 			</div>

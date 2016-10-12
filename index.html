@@ -44,7 +44,7 @@
 						<ul>
 					</section>
 					<section>
-						<h3>This talk</h3>
+						<h3>$this_talk</h3>
 						<ul>
 							<li>Modern Perl Programming <a href="http://www.modernperlbooks.com/mt/2011/01/how-to-identify-a-good-perl-programmer.html">blog post</a></li>
 							<li>January 2011</li>
@@ -353,16 +353,106 @@ $VAR1 = [
 				<section>
 					<section><h3>Where do tests go in a standard CPAN distribution?</h3></section>
 					<section>In the <i>t</i> directory, at the root of the distribution.</section>
+					<section>
+						<pre class="bash"><code>
+alba@aeryn:~/codi/Paws-0.28$ ls
+bin       dist.ini        lib          MANIFEST   old_t      TODO
+Changes   examples        LICENSE      META.json  README.md  TODO_in_branch
+cpanfile  gen_classes.pl  Makefile.PL  META.yml   t          xt
+						</code></pre>
+						<pre class="bash"><code>
+alba@aeryn:~/codi/Paws-0.28/t$ ls
+01_load.t                  11_client_exceptions_httptiny
+02_aws_object.t            11_client_exceptions_lwp
+03_aws_default_object.t    11_client_exceptions.t
+04_credentials             12_regions.t
+04_credentials.t           13_client_connect_errors.t
+05_service_calls.t         14_dns_client_errors.t
+10_generate_test_cases.pl  15_timeouts.t
+10_responses               16_retries.t
+10_responses.t             lib
+11_client_exceptions_furl
+						</code></pre>
+					</section>
 				</section>
 				<!-- Question 16 -->
 				<section>
 					<section><h3>How do you run tests in a standard CPAN distribution?</h3></section>
-					<section>With the <code>prove</code> command.</section>
+					<section>
+						<p>With the <code>prove</code> command</p>
+						<pre class="bash"><code>
+prove - Run tests through a TAP harness.
+						</code></pre>
+					</section>
+					<section>
+						<pre class="bash"><code>
+alba@aeryn:~/codi/Paws-0.28$ prove -I lib/ -I local/lib/perl5/ t/01_load.t
+t/01_load.t .. 1/? Paws::ApiGateway is not stable / supported / entirely developed at /home/alba/codi/Paws-0.28/lib/Paws/ApiGateway.pm line 2,  line 1.
+t/01_load.t .. 5/? Paws::CloudFront is not stable / supported / entirely developed at /home/alba/codi/Paws-0.28/lib/Paws/CloudFront.pm line 2,  line 1.
+Paws::CloudSearchDomain is not stable / supported / entirely developed at /home/alba/codi/Paws-0.28/lib/Paws/CloudSearchDomain.pm line 2,  line 1.
+t/01_load.t .. 15/? Paws::CognitoSync is not stable / supported / entirely developed at /home/alba/codi/Paws-0.28/lib/Paws/CognitoSync.pm line 2,  line 1.
+t/01_load.t .. 29/? Paws::EFS is not stable / supported / entirely developed at /home/alba/codi/Paws-0.28/lib/Paws/EFS.pm line 2,  line 1.
+t/01_load.t .. 33/? Paws::ES is not stable / supported / entirely developed at /home/alba/codi/Paws-0.28/lib/Paws/ES.pm line 2,  line 1.
+t/01_load.t .. 37/? Paws::ElasticTranscoder is not stable / supported / entirely developed at /home/alba/codi/Paws-0.28/lib/Paws/ElasticTranscoder.pm line 2,  line 1.
+t/01_load.t .. 41/? Paws::Glacier is not stable / supported / entirely developed at /home/alba/codi/Paws-0.28/lib/Paws/Glacier.pm line 2,  line 1.
+t/01_load.t .. 43/? Paws::IoT is not stable / supported / entirely developed at /home/alba/codi/Paws-0.28/lib/Paws/IoT.pm line 2,  line 1.
+t/01_load.t .. 46/? Paws::IoTData is not stable / supported / entirely developed at /home/alba/codi/Paws-0.28/lib/Paws/IoTData.pm line 2,  line 1.
+Paws::Lambda is not stable / supported / entirely developed at /home/alba/codi/Paws-0.28/lib/Paws/Lambda.pm line 2,  line 1.
+t/01_load.t .. 57/? Paws::Route53 is not stable / supported / entirely developed at /home/alba/codi/Paws-0.28/lib/Paws/Route53.pm line 2,  line 1.
+t/01_load.t .. 59/? Paws::S3 is not stable / supported / entirely developed at /home/alba/codi/Paws-0.28/lib/Paws/S3.pm line 2,  line 1.
+t/01_load.t .. ok
+All tests successful.
+Files=1, Tests=74, 22 wallclock secs ( 0.03 usr  0.00 sys + 21.75 cusr  0.28 csys = 22.06 CPU)
+Result: PASS
+						</code></pre>
+					</section>
 				</section>
 				<!-- Question 17 -->
 				<section>
 					<section><h3>What command do you use to install new distributions from the CPAN?</h3></section>
-					<section><code>cpan</code> or <code>cpanm</code></section>
+					<section>
+						<h4>Linux</h4>
+						<pre class="perl"><code>
+#cpan
+cpan Capoeira::Jogador;
+#cpanminus
+cpanm Capoeira::Jogador;
+						</code></pre>
+					</section>
+					<section>
+						<h4>Windows</h4>
+						<pre class="perl"><code>
+#Strawberry Perl
+cpan
+cpan> install Capoeira::Musica;
+#Active Perl
+ppm
+ppm> install Capoeira::Musica;
+						</code></pre>
+					</section>
+					<section>
+						<h4>Linux - distros packages</h4>
+						<pre class="bash"><code>
+#debian-based
+apt-get install libcapoeira-roda-perl
+#redhat-based
+yum install perl-capoeira-roda
+						</code></pre>
+					</section>
+					<section>
+						<p>carton</p>
+						<pre class="perl"><code>
+#cpanfile
+requires 'Moose';
+requires 'Capoeira::Roda';
+requires 'Capoeira::Musica';
+requires 'Capoeira::Jogador';
+requires 'Capoeira::Roda';
+						</code></pre>
+						<pre class="perl"><code>
+carton install
+						</code></pre>
+					</section>
 				</section>
 				<!-- Question 18 -->
 				<section>
@@ -380,6 +470,93 @@ open(my $fh, "&lt;", "/path/to/file.txt")
 						<ul>
 							<li>To avoid collision with reserved variables</li>
 							<li>For security (not sanitized input with &gt; at the beginning)</li>
+						</ul>
+					</section>
+				</section>
+				<!-- Question 19 -->
+				<section>
+					<section>
+						<h3>How do you detect (and report) errors from system calls such as open?</h3>
+						<p>(Award bonus points for knowing how to enable automatic detection and reporting of errors)</p>
+					</section>
+					<section>
+						<p>Do the call or die</p>
+						<pre class="perl"><code>
+my $filename = "./file.txt"
+open (my $fh, "&lt;", $filename) or die "Cannot open file: $!\n";
+						</code></pre>
+					</section>
+					<section>
+						<p>Carp</p>
+						<pre class="perl"><code>
+use Carp;
+
+# die of errors (from perspective of caller)
+if ($filename != m/\.txt$/) {
+	croak "Incorrect file!";
+}
+						</code></pre>
+					</section>
+					<section>
+						<p>autodie</p>
+						<pre class="perl"><code>
+use autodie
+open(my $fh, "&lt;", $filename); # No need to check!
+						</code></pre>
+					</section>
+				</section>
+				<!-- Question 20 -->
+				<section>
+					<section><h3>How do you throw an exception in Perl 5?</h3></section>
+					<section><code>die</code></section>
+				</section>
+				<!-- Question 21 -->
+				<section>
+					<section><h3>How do you catch an exception in Perl 5?</h3></section>
+					<section><h4>eval</h4>
+						<code>eval BLOCK</code>
+						<p><i>[...]the code within the BLOCK is parsed only once--at the same time the code surrounding the "eval" itself was parsed--and executed within the context of the current Perl program.</i></p>
+						<p><i>If there is a syntax error or runtime error, or a "die" statement is executed, "eval" returns "undef" in scalar context or an empty list in list context, and $@ is set to the error message.</i></p>
+					</section>
+					<section>
+						<pre class="perl"><code>
+my @participantes = ('cegonha', 'lambari', 'calado', 'marujo', 'macaquinha');
+eval{
+    die "Not enough people for a roda!" unless (scalar @participantes > 10);
+};
+say "$@ Let's go for a beer instead" if $@;
+						</code></pre>
+						<pre><code>
+Not enough people for a roda! at jogo.pl line 9.
+ Let's go for a beer instead
+						</code></pre>
+					</section>
+				</section>
+				<!-- Question 22 -->
+				<section>
+					<section><h3>What is the difference between reading a file with for and with while?</h3></section>
+					<section>
+						<pre class="perl"><code>
+open (my $fh, '&lt;', 'cantigas.txt') or die "Cannot read file: $!";
+
+while (my $line = &lt;$fh&gt;) {
+    print "$line";
+}
+						</code></pre>
+						<pre class="perl"><code>
+open (my $fh, '&lt;', 'cantigas.txt') or die "Cannot read file: $!";
+
+foreach my $line (<$fh>) {
+    print "$line";
+}
+						</code></pre>
+					</section>
+					<section>
+						<p><code>for</code> will read the whole file and load it in memory. <code>while</code> will read line by line as the loop iterates.
+						<ul>
+							<li><code>while</code> is better for big files</li>
+							<li><code>while</code> is the way to go for growing files (e.g. live logs)</li>
+							<li>For all the rest, they're equivalent</li>
 						</ul>
 					</section>
 				</section>

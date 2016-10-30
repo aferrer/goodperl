@@ -84,7 +84,7 @@ my @jogadoras = ('cegonha', 'sol', 'colorada', 'creta', 'lua', 'macaquinha');
 say "With \@ we get: @jogadoras[2]";
 say "With \$ we get: $jogadoras[2]";
 						</code></pre>
-						<pre class="bash"><code>
+						<pre class="bash fragment"><code>
 Scalar value @jogadoras[2] better written as $jogadoras[2] at test.pl line 9.
 With @ we get: colorada
 With $ we get: colorada
@@ -116,7 +116,7 @@ if ( "gunga" == "médio" ) {
 }
 
 						</code></pre>
-						<pre class="perl fragment"><code>
+						<pre class="bash fragment"><code>
 [eq] Gunga and médio are different types of berimbaus
 Argument "médio" isn't numeric in numeric eq (==) at test.pl line 13.
 Argument "gunga" isn't numeric in numeric eq (==) at test.pl line 13.
@@ -155,7 +155,7 @@ my @types_of_berimbaus = %berimbaus;
 
 say Dumper @types_of_berimbaus;
 						</code></pre>
-						<pre class="perl fragment"><code>
+						<pre class="bash fragment"><code>
 $VAR1 = 'médio';
 $VAR2 = 'invert';
 $VAR3 = 'gunga';
@@ -258,7 +258,7 @@ visible();
 dynamic();
 lexical();
 						</code></pre>
-						<pre class="perl fragment"><code>
+						<pre class="bash fragment"><code>
 var has value global
 var has value local
 var has value global
@@ -356,7 +356,7 @@ my @jogadoras = ('cegonha', 'sol', 'colorada', 'creta', 'lua', 'macaquinha');
 jogar(@jogadoras);
 
 						</code></pre>
-						<pre class="perl"><code>
+						<pre class="bash fragment"><code>
 As participantes na roda sao cegonha
 						</code></pre>
 					</section>
@@ -381,7 +381,7 @@ my @jogadoras = ('cegonha', 'sol', 'colorada', 'creta', 'lua', 'macaquinha');
 my @jogadores = ('marujo', 'tarzan', 'socorrista', 'lambarí', 'afogado', 'calado');
 jogar(\@jogadoras, \@jogadores);
 						</code></pre>
-						<pre class="perl"><code>
+						<pre class="bash fragment"><code>
 As participantes na roda sao cegonha,sol,colorada,creta,lua,macaquinha
 Os participantes na roda sao marujo,tarzan,socorrista,lambarí,afogado,calado
 						</code></pre>
@@ -411,7 +411,7 @@ my $res2 = return_undef();
 say Dumper($res1);
 say Dumper($res2);
 						</code></pre>
-						<pre class="perl"><code>
+						<pre class="bash fragment"><code>
 $VAR1 = undef;
 
 $VAR1 = undef;
@@ -438,7 +438,7 @@ my @res2 = return_undef();
 say Dumper(\@res1);
 say Dumper(\@res2);
 						</code></pre>
-						<pre class="perl"><code>
+						<pre class="bash fragment"><code>
 $VAR1 = [];
 
 $VAR1 = [
@@ -624,7 +624,7 @@ eval{
 };
 say "$@ Let's go for a beer instead" if $@;
 						</code></pre>
-						<pre><code>
+						<pre class="bash fragment"><code>
 Not enough people for a roda! at jogo.pl line 9.
  Let's go for a beer instead
 						</code></pre>
@@ -698,7 +698,7 @@ my @jogadoras = ('cegonha', 'sol', 'colorada', 'creta', 'lua', 'macaquinha');
 jogar_par(@jogadoras);
 jogar_no_par(@jogadoras);
 						</code></pre>
-						<pre class="bash"><code>
+						<pre class="bash fragment"><code>
 cegonha
 6
 						</code></pre>
@@ -762,7 +762,7 @@ for my $corda (values %graduacoes) {
         say $corda;
 }
 						</code></pre>
-						<pre class="bash"><code>
+						<pre class="bash fragment"><code>
 laranja-azul
 azul
 verde-roxa

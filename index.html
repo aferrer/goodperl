@@ -98,10 +98,46 @@ With $ we get: colorada
 				<section>
 					<section><h3>What's the difference between <code>==</code> and <code>eq</code>?</h3></section>
 					<section>
-						<ul>
-							<li><code>==</code> forces the comparison in numeric context</li>
-							<li><code>eq</code> forces the comparison in string context</li>
-						</ul>
+						<p><code>==</code> forces the comparison in numeric context</p>
+						<p><code>eq</code> forces the comparison in string context</p>
+					</section>
+					<section>
+						<pre class="perl"><code>
+if ( "gunga" eq "médio" ) {
+    say "[eq] Gunga and médio are the same type of berimbau";
+} else {
+    say "[eq] Gunga and médio are different types of berimbaus";
+}
+
+if ( "gunga" == "médio" ) {
+    say "[==] Gunga and médio are the same type of berimbau";
+} else {
+    say "[==] Gunga and médio are different types of berimbaus";
+}
+
+						</code></pre>
+						<pre class="perl fragment"><code>
+[eq] Gunga and médio are different types of berimbaus
+Argument "médio" isn't numeric in numeric eq (==) at test.pl line 13.
+Argument "gunga" isn't numeric in numeric eq (==) at test.pl line 13.
+[==] Gunga and médio are the same type of berimbau
+						</code></pre>
+					</section>
+					<section>
+						<pre class="perl"><code>
+  DB<1> $berimbau = 'gunga'
+
+  DB<2> x int $berimbau
+0  0
+  DB<3> $berimbau = '2gunga'
+
+  DB<4> x int $berimbau
+0  2
+  DB<5> $berimbau = 'gunga2'
+
+  DB<6> x int $berimbau
+0  0
+						</code></pre>
 					</section>
 				</section>
 				<!-- Question 4 -->

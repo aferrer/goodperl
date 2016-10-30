@@ -77,8 +77,22 @@ Sigil, from the Latin sigillum, meaning a "little sign", means a sign or image s
 				<!-- Question 2 -->
 				<section>
 					<section><h3>What's the difference between accessing an array element with <code>$items[$index]</code> and <code>@items[$index]</code>?</h3></section>
-					<section>The context in which the result is evaluated</section>
-					<section>ToDo: example code</section>
+					<section>
+						<pre class="perl"><code>
+my @jogadoras = ('cegonha', 'sol', 'colorada', 'creta', 'lua', 'macaquinha');
+
+say "With \@ we get: @jogadoras[2]";
+say "With \$ we get: $jogadoras[2]";
+						</code></pre>
+						<pre class="bash"><code>
+Scalar value @jogadoras[2] better written as $jogadoras[2] at test.pl line 9.
+With @ we get: colorada
+With $ we get: colorada
+						</code></pre>
+					</section>
+					<section>
+						<p><code>@items[$index]</code> used to be a way to do a single item array slice, but it's not used anymore.</p>
+					</section>
 				</section>
 				<!-- Question 3 -->
 				<section>

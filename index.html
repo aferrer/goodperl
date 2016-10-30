@@ -143,7 +143,30 @@ Argument "gunga" isn't numeric in numeric eq (==) at test.pl line 13.
 				<!-- Question 4 -->
 				<section>
 					<section><h3>What do you get if you evaluate a hash in list context?</h3></section>
-					<section>A list of key-value pairs: (a, 1, b, 2, c, 3)</section>
+					<section>
+						<pre class="perl"><code>
+my %berimbaus = (
+    'gunga' => 'leader',
+    'médio' => 'invert',
+    'viola' => 'free style'
+);
+
+my @types_of_berimbaus = %berimbaus;
+
+say Dumper @types_of_berimbaus;
+						</code></pre>
+						<pre class="perl fragment"><code>
+$VAR1 = 'médio';
+$VAR2 = 'invert';
+$VAR3 = 'gunga';
+$VAR4 = 'leader';
+$VAR5 = 'viola';
+$VAR6 = 'free style';
+						</code></pre>
+					</section>
+					<section>
+						<p>We get a list of key-value pairs. Every pair in the hash becomes two elements in the list.</p>
+					</section>
 				</section>
 				<!-- Question 5 -->
 				<section>

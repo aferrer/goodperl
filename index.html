@@ -233,11 +233,38 @@ $VAR6 = 'free style';
 				<!-- notes: http://perldoc.perl.org/perlfaq7.html -->
 				<section>
 					<section><h3>How do you ensure that the default scope of a variable is lexical?</h3></section>
-					<section>By using <code>my</code></section>
 					<section>
 						<p><b>local $x</b>: saves away the old value of the global variable $x and assigns a new value for the duration of the subroutine/scope (and the subroutines called from it).</p>
 						<p><b>my $x</b>: creates a new variable that is visible only in the current subroutine/scope.</p>
+						<p><small><a href="http://perldoc.perl.org/perlfaq7.html#What%27s-the-difference-between-dynamic-and-lexical-(static)-scoping%3f-Between-local()-and-my()%3f" )title="Perldoc FAQ7">Perldoc FAQ7</a></small></p>
 					</section>
+					<section>
+						<pre class="perl"><code>
+our $var = 'global';
+
+sub visible {
+    print "var has value $var\n";
+}
+sub dynamic {
+    local $var = 'local';
+    visible();
+}
+sub lexical {
+    my $var = 'private';
+    visible();
+}
+
+visible();
+dynamic();
+lexical();
+						</code></pre>
+						<pre class="perl fragment"><code>
+var has value global
+var has value local
+var has value global
+						</code></pre>
+					</section>
+					<section>By using <code>my</code></section>
 				</section>
 				<!-- Question 9 -->
 				<!-- notes: http://perldoc.perl.org/Exporter.html -->

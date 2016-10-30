@@ -63,7 +63,7 @@ Sigil, from the Latin sigillum, meaning a "little sign", means a sign or image s
 						<p><small><a href="https://en.wikipedia.org/wiki/Sigil_(computer_programming)" title="Wikipedia - Sigil (computer programming)">Wikipedia - Sigil</a></small></p>
 					</section>
 					<section>
-						<ul>
+						<b><ul>
 							<li>Indicate the type or 'container' of that variable</li>
 							<li>There are three types of sigils:</li>
 							<ul>
@@ -71,7 +71,7 @@ Sigil, from the Latin sigillum, meaning a "little sign", means a sign or image s
 								<li>@: array</li>
 								<li>%: hash</li>
 							</ul>
-						<ul>
+						</ul></b>
 					</section>
 				</section>
 				<!-- Question 2 -->
@@ -91,15 +91,15 @@ With $ we get: colorada
 						</code></pre>
 					</section>
 					<section>
-						<p><code>@items[$index]</code> used to be a way to do a single item array slice, but it's not used anymore.</p>
+						<p><code>@items[$index]</code> <b>used to be a way to do a single item array slice, but it's not used anymore.</b></p>
 					</section>
 				</section>
 				<!-- Question 3 -->
 				<section>
 					<section><h3>What's the difference between <code>==</code> and <code>eq</code>?</h3></section>
 					<section>
-						<p><code>==</code> forces the comparison in numeric context</p>
-						<p><code>eq</code> forces the comparison in string context</p>
+						<p><code>==</code><b> forces the comparison in numeric context</b></p>
+						<p><code>eq</code><b> forces the comparison in string context</b></p>
 					</section>
 					<section>
 						<pre class="perl"><code>
@@ -165,7 +165,7 @@ $VAR6 = 'free style';
 						</code></pre>
 					</section>
 					<section>
-						<p>We get a list of key-value pairs. Every pair in the hash becomes two elements in the list.</p>
+						<p><b>We get a list of key-value pairs. Every pair in the hash becomes two elements in the list.</b></p>
 					</section>
 				</section>
 				<!-- Question 5 -->
@@ -173,9 +173,9 @@ $VAR6 = 'free style';
 					<section><h3>How do you look up keywords in the Perl documentation?</h3></section>
 					<section>
 						<h3><code>perldoc -f «keyword»</code></h3>
-						<p>if «keyword» is a function</p>
+						<p><b>if «keyword» is a function</b></p>
 						<h3><code>perldoc -q «keyword»</code></h3>
-						<p>if «keyword» is any word, to look it up in the FAQ</p>
+						<p><b>if «keyword» is any word, to look it up in the FAQ</b></p>
 					</section>
 				</section>
 				<!-- Question 6 -->
@@ -227,15 +227,15 @@ $VAR6 = 'free style';
 				<!-- Question 7 -->
 				<section>
 					<section><h3>When does Perl 5 reclaim the memory used by a variable?</h3></section>
-					<section>When it disappears (end of scope, function,...)</section>
+					<section><b>When it disappears (end of scope, function,...)</b></section>
 				</section>
 				<!-- Question 8 -->
 				<!-- notes: http://perldoc.perl.org/perlfaq7.html -->
 				<section>
 					<section><h3>How do you ensure that the default scope of a variable is lexical?</h3></section>
 					<section>
-						<p><b>local $x</b>: saves away the old value of the global variable $x and assigns a new value for the duration of the subroutine/scope (and the subroutines called from it).</p>
-						<p><b>my $x</b>: creates a new variable that is visible only in the current subroutine/scope.</p>
+						<p><code>local $x</code>:<b> saves away the old value of the global variable $x and assigns a new value for the duration of the subroutine/scope (and the subroutines called from it).</b></p>
+						<p><code>my $x</code>: <b>creates a new variable that is visible only in the current subroutine/scope.</b></p>
 						<p><small><a href="http://perldoc.perl.org/perlfaq7.html#What%27s-the-difference-between-dynamic-and-lexical-(static)-scoping%3f-Between-local()-and-my()%3f" )title="Perldoc FAQ7">Perldoc FAQ7</a></small></p>
 					</section>
 					<section>
@@ -264,13 +264,13 @@ var has value local
 var has value global
 						</code></pre>
 					</section>
-					<section>By using <code>my</code></section>
+					<section><b>By using </b><code>my</code></section>
 				</section>
 				<!-- Question 9 -->
 				<!-- notes: http://perldoc.perl.org/Exporter.html -->
 				<section>
 					<section><h3>How do you load and import symbols from a Perl 5 module?</h3></section>
-					<section>In order to import, you first need to export</section>
+					<section><b>In order to import, you first need to export</b></section>
 					<section>
 						<pre class="perl"><code>
 	package Capoeira;
@@ -289,17 +289,17 @@ var has value global
 				<section>
 					<section><h3>How can you influence the list of directories from which perl attempts to load modules?</h3></section>
 					<section>
-						<p><b>@INC:</b> contains the list of places that <code>do</code>, <code>require</code> or <code>use</code> constructs look for their library files.</p>
-						<ul>
+						<p><code>@INC</code>:<b> contains the list of places that </b><code>do</code><b>,</b> <code>require</code> <b>or</b> <code>use</code> <b>constructs look for their library files.</b></p>
+						<ul><b>
 							<li>Arguments to any <code>-I</code> command line switches</li>
 							<li>Default Perl library (e.g. <i>/usr/local/lib/perl</i>)</li>
 							<li>.</li>
-						</ul>
-						<p class="fragment fade-up"><b>BEWARE!!!</b><br>
-						This behavior changes in 5.24, and '.' is not added anymore (security vulnerability).</p>
+						</b></ul>
+						<p class="fragment fade-up"><b>BEWARE!!!<br>
+						This behavior changes in 5.24, and '.' is not added anymore (security vulnerability)</b></p>
 					</section>
 					<section>
-						<p>To load modules from other directories, use the <code>use lib</code> pragma</p>
+						<p><b>To load modules from other directories, use the </b><code>use lib</code> <b>pragma</b></p>
 						<pre class="perl"><code>
 	use lib '/home/alba/myhobbies/capoeira/lib/';
 	use Capoeira;
@@ -342,7 +342,7 @@ var has value global
 				<section>
 					<section><h3>What happens when you pass an array into a function?</h3></section>
 					<section>
-						<p>The array is "flattened" and every element becomes a parameter in the function</p>
+						<p><b>The array is "flattened" and every element becomes a parameter in the function</b></p>
 						<pre class="perl"><code>
 #!/usr/bin/perl
 use v5.20;
@@ -365,7 +365,7 @@ As participantes na roda sao cegonha
 				<section>
 					<section><h3>How do you pass one or more distinct arrays into a function?</h3></section>
 					<section>
-						<p>By passing them as references</p>
+						<p><b>By passing them as references</b></p>
 						<pre class="perl"><code>
 #!/usr/bin/perl
 use v5.20;
@@ -450,7 +450,7 @@ $VAR1 = [
 				<!-- Question 15 -->
 				<section>
 					<section><h3>Where do tests go in a standard CPAN distribution?</h3></section>
-					<section>In the <i>t</i> directory, at the root of the distribution</section>
+					<section><b>In the <i>t</i> directory, at the root of the distribution</b></section>
 					<section>
 						<pre class="bash"><code>
 alba@aeryn:~/codi/Paws-0.28$ ls
@@ -477,7 +477,7 @@ alba@aeryn:~/codi/Paws-0.28/t$ ls
 				<section>
 					<section><h3>How do you run tests in a standard CPAN distribution?</h3></section>
 					<section>
-						<p>With the <code>prove</code> command</p>
+						<p><b>With the </b><code>prove</code> <b>command</b></p>
 						<pre class="bash"><code>
 prove - Run tests through a TAP harness.
 						</code></pre>
@@ -538,7 +538,7 @@ yum install perl-capoeira-roda
 						</code></pre>
 					</section>
 					<section>
-						<p>carton</p>
+						<h4>carton</h4>
 						<pre class="perl"><code>
 #cpanfile
 requires 'Moose';
@@ -559,16 +559,16 @@ carton install
 						<pre class="perl"><code>
 open(FILE, "&lt;/path/to/file.txt")
 						</code></pre>
-						<p>vs</p>
+						<p><b>vs</b></p>
 						<pre class="perl"><code>
 open(my $fh, "&lt;", "/path/to/file.txt")
 						</code></pre>
 					</section>
 					<section>
-						<ul>
+						<ul><b>
 							<li>To avoid collision with reserved variables</li>
 							<li>For security (not sanitized input with &gt; at the beginning)</li>
-						</ul>
+						</b></ul>
 					</section>
 				</section>
 				<!-- Question 19 -->
@@ -578,14 +578,22 @@ open(my $fh, "&lt;", "/path/to/file.txt")
 						<p>(Award bonus points for knowing how to enable automatic detection and reporting of errors)</p>
 					</section>
 					<section>
-						<p>Do the call or die</p>
+						<h4>Do the call or die</h4>
 						<pre class="perl"><code>
-my $filename = "./cantigas.txt"
+my $songs = "./cantigas.txt"
 open (my $fh, "&lt;", $songs) or die "Cannot open file: $!\n";
 						</code></pre>
 					</section>
 					<section>
-						<p>Carp</p>
+						<h4>autodie</h4>
+						<pre class="perl"><code>
+use autodie
+my $songs = "./cantigas.txt"
+open(my $fh, "&lt;", $songs); # No need to check!
+						</code></pre>
+					</section>
+					<section>
+						<h4>Carp</h4>
 						<pre class="perl"><code>
 use Carp;
 
@@ -595,18 +603,11 @@ if ($filename != m/\.txt$/) {
 }
 						</code></pre>
 					</section>
-					<section>
-						<p>autodie</p>
-						<pre class="perl"><code>
-use autodie
-open(my $fh, "&lt;", $filename); # No need to check!
-						</code></pre>
-					</section>
 				</section>
 				<!-- Question 20 -->
 				<section>
 					<section><h3>How do you throw an exception in Perl 5?</h3></section>
-					<section><code>die</code></section>
+					<section><h4>With <code>die</code></h4></section>
 				</section>
 				<!-- Question 21 -->
 				<section>
@@ -650,11 +651,12 @@ foreach my $line (<$fh>) {
 						</code></pre>
 					</section>
 					<section>
-						<p><code>for</code> will read the whole file and load it in memory. <code>while</code> will read line by line as the loop iterates.
-						<ul>
-							<li><code>while</code> is better for big files</li>
-							<li><code>while</code> is the way to go for growing files (e.g. live logs)</li>
-							<li>For all the rest, they're equivalent</li>
+						<p><code>for</code> <b>will read the whole file and load it in memory</b></br>
+						<code>while</code> <b>will read line by line as the loop iterates</b>
+						<ul class="fragment">
+							<li><code>while</code> <b>is better for big files</b></li>
+							<li><code>while</code> <b>is the way to go for growing files (e.g. live logs)</b></li>
+							<li><b>For all the rest, they're equivalent</b></li>
 						</ul>
 					</section>
 				</section>
@@ -662,8 +664,8 @@ foreach my $line (<$fh>) {
 				<section>
 					<section><h3>How do you handle parameters within a method or function in Perl 5?</h3></section>
 					<section>
-						<p>Parameters are kept in the special variable <code>@_</code></p>
-						<p>You can handle the parameters by running <code>shift</code> on <code>@_</code> (implicit variable in the function)</p>
+						<p><b>Parameters are kept in the special variable </b><code>@_</code></p>
+						<p><b>You can handle the parameters by running</b> <code>shift</code> <b>on</b> <code>@_</code> <b>(implicit variable in the function)</b></p>
 						<pre class="perl"><code>
 sub jogar {
         my $participantes = shift;
@@ -679,8 +681,8 @@ jogar(\@jogadoras);
 				<section>
 					<section><h3>What do parentheses around the variable name in <code>my ($value) = @_;</code> mean, and what would happen if you removed them?</h3></section>
 					<section>
-						<p>With the parentheses, evaluation is in array context. <code>$value</code> will get the first element of the <code>@_</code> array</p>
-						<p>Without the parentheses, evaluation is in scalar context. <code>$value</code> will get the number of elements in the <code>@_</code> array</p>
+						<p><b>With the parentheses, evaluation is in array context.</b> <code>$value</code> <b>will get the first element of the</b> <code>@_</code> <b>array</b></p>
+						<p><b>Without the parentheses, evaluation is in scalar context.</b> <code>$value</code> <b>will get the number of elements in the</b> <code>@_</code> <b>array</b></p>
 					</section>
 					<section>
 						<pre class="perl"><code>
@@ -708,15 +710,15 @@ cegonha
 				<section>
 					<section><h3>Is <code>new</code> a builtin function/keyword?</h3></section>
 					<section>
-					<p>No</p>
-					<p>It's just a convention</p>
+					<b><p>No</p>
+					<p>It's just a convention</p></b>
 					</section>
 				</section>
 				<!-- Question 26 -->
 				<section>
 					<section><h3>How do you read the documentation of a core library? A CPAN module?</h3></section>
 					<section>
-						<p>With <code>perldoc</code></p>
+						<p><b>With </b><code>perldoc</code></p>
 						<pre class="perl"><code>
 perldoc Paws
 						</code></pre>
@@ -747,7 +749,7 @@ SUPPORTED SERVICES
 				<section>
 					<section><h3>How do you access only the values of a Perl 5 hash?</h3></section>
 					<section>
-						<p>With the <code>values</code> function</p>
+						<p><b>With the</b> <code>values</code> <b>function</b></p>
 						<pre class="perl"><code>
 #player-grade
 my %graduacoes = (

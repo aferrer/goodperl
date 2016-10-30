@@ -632,7 +632,7 @@ Not enough people for a roda! at jogo.pl line 9.
 				</section>
 				<!-- Question 22 -->
 				<section>
-					<section><h3>What is the difference between reading a file with for and with while?</h3></section>
+					<section><h3>What is the difference between reading a file with <code>for</code> and with <code>while</code>?</h3></section>
 					<section>
 						<pre class="perl"><code>
 open (my $fh, '&lt;', 'cantigas.txt') or die "Cannot read file: $!";
@@ -663,7 +663,7 @@ foreach my $line (<$fh>) {
 					<section><h3>How do you handle parameters within a method or function in Perl 5?</h3></section>
 					<section>
 						<p>Parameters are kept in the special variable <code>@_</code></p>
-						<p>You can handle the parameters by running <code>shift</code> on <code>@_</code> (implicit variable in the function</p>
+						<p>You can handle the parameters by running <code>shift</code> on <code>@_</code> (implicit variable in the function)</p>
 						<pre class="perl"><code>
 sub jogar {
         my $participantes = shift;
@@ -751,11 +751,11 @@ SUPPORTED SERVICES
 						<pre class="perl"><code>
 #player-grade
 my %graduacoes = (
-        'cegonha' =&gt; 'azul',
-        'creta' =&gt; 'laranja-azul',
-        'sol' =&gt; 'amarela-laranja',
-        'afogado' =&gt; 'amarela',
-        'lambarí' =&gt; 'verde-roxa'
+        'cegonha' 	=&gt; 'azul',
+        'creta' 	=&gt; 'laranja-azul',
+        'sol' 		=&gt; 'amarela-laranja',
+        'afogado' 	=&gt; 'amarela',
+        'lambarí' 	=&gt; 'verde-roxa'
 );
 
 for my $corda (values %graduacoes) {

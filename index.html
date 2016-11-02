@@ -346,9 +346,6 @@ var has value global
 					<section>
 						<p><b>The array is "flattened" and every element becomes a parameter in the function</b></p>
 						<pre class="perl"><code>
-#!/usr/bin/perl
-use v5.20;
-
 sub jogar {
         my @participantes = shift;
         say "As participantes na roda sao " . join(",", @participantes);
@@ -369,9 +366,6 @@ As participantes na roda sao cegonha
 					<section>
 						<p><b>By passing them as references</b></p>
 						<pre class="perl"><code>
-#!/usr/bin/perl
-use v5.20;
-
 sub jogar {
         my $jogadoras = shift;
 	my $jogadores = shift;
@@ -395,8 +389,6 @@ Os participantes na roda sao marujo,tarzan,socorrista,lambarí,afogado,calado
 					<section>
 						<h4>In scalar context</h4>
 						<pre class="perl"><code>
-#!/usr/bin/perl
-use v5.20;
 use Data::Dumper;
 
 sub return_nothing {
@@ -422,8 +414,6 @@ $VAR1 = undef;
 					<section>
 						<h4>In list context</h4>
 						<pre class="perl"><code>
-#!/usr/bin/perl
-use v5.20;
 use Data::Dumper;
 
 sub return_nothing {

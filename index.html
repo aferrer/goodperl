@@ -640,15 +640,15 @@ Thunder road
 					<section>
 						<h4>Do the call or die</h4>
 						<pre class="perl"><code>
-my $songs = "./cantigas.txt"
+my $songs = "./cantigas.txt";
 open (my $fh, "&lt;", $songs) or die "Cannot open file: $!\n";
 						</code></pre>
 					</section>
 					<section>
 						<h4>autodie</h4>
 						<pre class="perl"><code>
-use autodie
-my $songs = "./cantigas.txt"
+use autodie;
+my $songs = "./cantigas.txt";
 open(my $fh, "&lt;", $songs); # No need to check!
 						</code></pre>
 					</section>

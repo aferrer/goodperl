@@ -566,9 +566,77 @@ open(my $fh, "&lt;", "/path/to/file.txt")
 					</section>
 					<section>
 						<ul><b>
-							<li>To avoid collision with reserved variables</li>
-							<li>For security (not sanitized input with &gt; at the beginning)</li>
+							<li>Global variables like <code>FILE</code> can generate problems if they are overwritten somewhere else</li>
+							<li>It's insecure</li>
 						</b></ul>
+					</section>
+					<section>
+						<pre class="perl"><code>
+my $filename = shift;
+open my $fh, "&gt;$filename" or die "Can't write to '$filename': $!\n";
+
+say $fh "Born to run\nBobbie Jean\nThunder road";
+						</code></pre>
+						<pre class="perl"><code>
+alba@aeryn:~/codi/goodperl$ cat cantigas.txt
+No terreiro da fazenda
+Malicia e manha
+Angola que me leva
+Acende o candieiro
+Mas que saudade
+Deixa o berimbau falar
+						</code></pre>
+					</section>
+					<section>
+						<pre class="perl"><code>
+alba@aeryn:~/codi/goodperl$ perl sing.pl cantigas.txt
+alba@aeryn:~/codi/goodperl$ cat cantigas.txt
+Born to run
+Bobbie Jean
+Thunder road
+						</code></pre>
+					</section>
+					<section>
+						<pre class="perl"><code>
+alba@aeryn:~/codi/goodperl$ perl sing.pl '&gt; cantigas.txt'
+alba@aeryn:~/codi/goodperl$ cat cantigas.txt
+No terreiro da fazenda
+Malicia e manha
+Angola que me leva
+Acende o candieiro
+Mas que saudade
+Deixa o berimbau falar
+Born to run
+Bobbie Jean
+Thunder road
+						</code></pre>
+					</section>
+					<section>
+						<pre class="perl"><code>
+my $filename = shift;
+open my $fh, "$filename" or die "Can't write to '$filename': $!\n";
+
+say $fh "Born to run\nBobbie Jean\nThunder road";
+						</code></pre>
+						<pre class="perl"><code>
+alba@aeryn:~/codi/goodperl$ perl sing.pl 'rm -rf cantigas.txt |'
+						</code></pre>
+					</section>
+					<section>
+						<h4>Use the three-argument <code>open</code></h4>
+						<pre class="perl"><code>
+my $filename = shift;
+open my $fh, '&gt;', $filename or die "Can't write to '$filename': $!";
+						</code></pre>
+						<pre class="perl"><code>
+alba@aeryn:~/codi/goodperl$ perl sing.pl 'touch malicious_cantigas.sh |'
+alba@aeryn:~/codi/goodperl$ ls
+sing.pl		cantigas.txt 	touch malicious_cantigas.sh |
+alba@aeryn:~/codi/goodperl$ cat touch\ malicious_cantigas.sh\ \|
+Born to run
+Bobbie Jean
+Thunder road
+						</code></pre>
 					</section>
 				</section>
 				<!-- Question 19 -->

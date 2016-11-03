@@ -108,13 +108,13 @@ With $ we get: colorada
 if ( "gunga" eq "médio" ) {
     say "[eq] Gunga and médio are the same type of berimbau";
 } else {
-    say "[eq] Gunga and médio are different types of berimbaus";
+    say "[eq] Gunga and médio are different types of berimbau";
 }
 
 if ( "gunga" == "médio" ) {
     say "[==] Gunga and médio are the same type of berimbau";
 } else {
-    say "[==] Gunga and médio are different types of berimbaus";
+    say "[==] Gunga and médio are different types of berimbau";
 }
 
 						</code></pre>
@@ -274,6 +274,7 @@ var has value global
 					<section><h3>How do you load and import symbols from a Perl 5 module?</h3></section>
 					<section><b>In order to import, you first need to export</b></section>
 					<section>
+						<p><b>Export</b><p>
 						<pre class="perl"><code>
 	package Capoeira;
 	use Exporter 'import'; # gives you Exporter's import() method directly
@@ -281,6 +282,7 @@ var has value global
 						</code></pre>
 					</section>
 					<section>
+						<p><b>Import</b><p>
 						<pre class="perl"><code>
 	use Capoeira qw(ginga queixada);
 						</code></pre>
@@ -611,7 +613,7 @@ open my $fh, "$filename" or die "Can't write to '$filename': $!\n";
 say $fh "Born to run\nBobbie Jean\nThunder road";
 						</code></pre>
 						<pre class="perl"><code>
-alba@aeryn:~/codi/goodperl$ perl sing.pl 'rm -rf cantigas.txt |'
+alba@aeryn:~/codi/goodperl$ perl sing.pl 'rm -f cantigas.txt |'
 						</code></pre>
 					</section>
 					<section>
@@ -652,6 +654,7 @@ my $songs = "./cantigas.txt";
 open(my $fh, "&lt;", $songs); # No need to check!
 						</code></pre>
 					</section>
+					<!--
 					<section>
 						<h4>Carp</h4>
 						<pre class="perl"><code>
@@ -663,6 +666,7 @@ if ($filename != m/\.txt$/) {
 }
 						</code></pre>
 					</section>
+					-->
 				</section>
 				<!-- Question 20 -->
 				<section>
@@ -836,7 +840,7 @@ amarela-laranja
 				<!-- Closing -->
 				<section>
 					<section><h3>More questions?</h3></section>
-					<section><h3>Thank you!</h3></section>
+					<section><h3>Thank you and axé!</h3></section>
 				</section>
 			</div>
 		</div>

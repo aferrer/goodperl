@@ -640,6 +640,24 @@ Thunder road
 						<p>(Award bonus points for knowing how to enable automatic detection and reporting of errors)</p>
 					</section>
 					<section>
+						<h4>By checking the return code</h4>
+						<pre class="perl"><code>
+my $songs = "./cantigas.txt";
+my $res = open (my $fh, "&lt;", $songs);
+say Dumper($res);
+say "$!";
+						</code></pre>
+						<pre class="perl"><code>
+$VAR1 = undef;
+
+No such file or directory
+						</code></pre>
+					</section>
+				</section>
+				<!-- Question 20 -->
+				<section>
+					<section><h3>How do you throw an exception in Perl 5?</h3></section>
+					<section>
 						<h4>Do the call or die</h4>
 						<pre class="perl"><code>
 my $songs = "./cantigas.txt";
@@ -654,24 +672,6 @@ my $songs = "./cantigas.txt";
 open(my $fh, "&lt;", $songs); # No need to check!
 						</code></pre>
 					</section>
-					<!--
-					<section>
-						<h4>Carp</h4>
-						<pre class="perl"><code>
-use Carp;
-
-# die of errors (from perspective of caller)
-if ($filename != m/\.txt$/) {
-	croak "Incorrect file!";
-}
-						</code></pre>
-					</section>
-					-->
-				</section>
-				<!-- Question 20 -->
-				<section>
-					<section><h3>How do you throw an exception in Perl 5?</h3></section>
-					<section><h4>With <code>die</code></h4></section>
 				</section>
 				<!-- Question 21 -->
 				<section>
@@ -693,6 +693,10 @@ say "$@ Let's go for a beer instead" if $@;
 Not enough people for a roda! at jogo.pl line 9.
  Let's go for a beer instead
 						</code></pre>
+					</section>
+					<section>
+						<h4>Another option: use try-catch modules</h4>
+						<img src="./metacpan-try-catch.png" height="400" width="600">
 					</section>
 				</section>
 				<!-- Question 22 -->

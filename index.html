@@ -661,7 +661,11 @@ No such file or directory
 						<h4>Do the call or die</h4>
 						<pre class="perl"><code>
 my $songs = "./cantigas.txt";
-open (my $fh, "&lt;", $songs) or die "Cannot open file: $!\n";
+open (my $fh, "&lt;", $songs) or die "Cannot open file: $!";
+						</code></pre>
+						<pre class="bash fragment"><code>
+alba@aeryn:~/codi/goodperl$ perl sing.pl
+Cannot open file: No such file or directory at sing.pl line 6.
 						</code></pre>
 					</section>
 					<section>
@@ -670,6 +674,10 @@ open (my $fh, "&lt;", $songs) or die "Cannot open file: $!\n";
 use autodie;
 my $songs = "./cantigas.txt";
 open(my $fh, "&lt;", $songs); # No need to check!
+						</code></pre>
+						<pre class="bash fragment"><code>
+alba@aeryn:~/codi/goodperl$ perl sing.pl
+Can't open './cantigas.txt' for reading: 'No such file or directory' at test.pl line 7
 						</code></pre>
 					</section>
 				</section>

@@ -571,7 +571,7 @@ open my $fh, "&gt;$filename" or die "Can't write to '$filename': $!\n";
 
 say $fh "Born to run\nBobbie Jean\nThunder road";
 						</code></pre>
-						<pre class="perl"><code>
+						<pre class="bash fragment"><code>
 alba@aeryn:~/codi/goodperl$ cat cantigas.txt
 No terreiro da fazenda
 Malicia e manha
@@ -582,7 +582,7 @@ Deixa o berimbau falar
 						</code></pre>
 					</section>
 					<section>
-						<pre class="perl"><code>
+						<pre class="bash"><code>
 alba@aeryn:~/codi/goodperl$ perl sing.pl cantigas.txt
 alba@aeryn:~/codi/goodperl$ cat cantigas.txt
 Born to run
@@ -591,7 +591,7 @@ Thunder road
 						</code></pre>
 					</section>
 					<section>
-						<pre class="perl"><code>
+						<pre class="bash"><code>
 alba@aeryn:~/codi/goodperl$ perl sing.pl '&gt; cantigas.txt'
 alba@aeryn:~/codi/goodperl$ cat cantigas.txt
 No terreiro da fazenda
@@ -647,7 +647,7 @@ my $res = open (my $fh, "&lt;", $songs);
 say Dumper($res);
 say "$!";
 						</code></pre>
-						<pre class="perl"><code>
+						<pre class="bash fragment"><code>
 $VAR1 = undef;
 
 No such file or directory

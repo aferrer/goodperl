@@ -757,7 +757,7 @@ jogar(\@jogadoras);
 				<section>
 					<section><h3>What do parentheses around the variable name in <code>my ($value) = @_;</code> mean, and what would happen if you removed them?</h3></section>
 					<section>
-						<p><b>With the parentheses, evaluation is in array context.</b> <code>$value</code> <b>will get the first element of the</b> <code>@_</code> <b>array</b></p>
+						<p><b>With the parentheses, evaluation is in list context.</b> <code>$value</code> <b>will get the first element of the</b> <code>@_</code> <b>array</b></p>
 						<p><b>Without the parentheses, evaluation is in scalar context.</b> <code>$value</code> <b>will get the number of elements in the</b> <code>@_</code> <b>array</b></p>
 					</section>
 					<section>

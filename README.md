@@ -9,7 +9,7 @@ The talk uses [reveal.js](https://github.com/hakimel/reveal.js/).
 
 ### Contributors
 
-Some people has helped me improve the talk by providing corrections and ideas through the presentation and afterwards, either in person or throug MRs. Thanks to all!
+Some people have helped me improve the talk by providing corrections and ideas through the presentation and afterwards, either in person or throug MRs. Thanks to all!
 
  * [Alex Muntada](https://github.com/alexm)
  * [SawyerX](https://github.com/xsawyerx)
